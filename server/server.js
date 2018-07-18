@@ -21,6 +21,17 @@ io.on('connection',function(socket){  //in here socket come value of index.html 
             createAt:new Date().getTime()
         });
     });
+        socket.emit('newMessage',{
+            from:'Admin',
+            text:'Welcome to Chat App'
+        });
+
+        /* this will brodcast the message except those whose send will not get message*/
+        socket.broadcast.emit('newMessage',{
+            from:'Admin',
+            text:'new user join',
+            createAt:new Date().getTime()
+        });
 
 
     socket.on('disconnect',function(){
