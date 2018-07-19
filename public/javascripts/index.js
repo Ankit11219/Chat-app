@@ -21,9 +21,8 @@ socket.on('newLocationMessage',function(message){
     var template = $('#location-message-template').html();
     var html = Mustache.render(template,{
         from: message.from,
-        createdAt: formattedTime,
-        url: message.url
-
+        url: message.url,
+        createdAt: formattedTime
     });
     $("#messages").append(html);
 });
