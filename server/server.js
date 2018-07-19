@@ -15,9 +15,10 @@ var io = socketIO(server);
 io.on('connection',function(socket){  //in here socket come value of index.html var socket = io(); variable 
     console.log('newuser connected');
 
-    socket.on('createMessage',function(message){
+    socket.on('createMessage',function(message,cb){
         console.log('createMessage',message);
         io.emit('newMessage',generateMessage(message.from,message.text));
+        cb('This is from the server');
     });
         socket.emit('newMessage',generateMessage('Admin','Welcome to Chat App'));
 
