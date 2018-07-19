@@ -18,7 +18,7 @@ io.on('connection',function(socket){  //in here socket come value of index.html 
     socket.on('createMessage',function(message,cb){
         console.log('createMessage',message);
         io.emit('newMessage',generateMessage(message.from,message.text));
-        cb('This is from the server');
+        cb();
     });
 
     socket.on('createLocationMessage',function(coords){
