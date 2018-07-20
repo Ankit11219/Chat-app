@@ -65,12 +65,12 @@ socket.on('disconnect',function(){
     console.log('Disconnected from server');
 });
 
-var messageTextbox = $('[name=message]');
+
 
 $("#message-form").on('submit',function(e){
     e.preventDefault();
+    var messageTextbox = $('[name=message]');
     socket.emit('createMessage',{
-        from:'Yash',
         text:messageTextbox.val()
     },function(){
         messageTextbox.val('');
